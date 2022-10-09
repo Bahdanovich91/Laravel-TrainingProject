@@ -19,4 +19,9 @@ class ContactController extends Controller
 
         return redirect()->route('home')->with('success', 'Сообщение было добавлено');
     }
+
+    public function allData() {
+        $contact = new Contact();
+        return view('messages', ['data' => $contact->inRandomOrder()->get()]);
+    }
 }
